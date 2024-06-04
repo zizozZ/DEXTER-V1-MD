@@ -6,17 +6,17 @@ const { default: axios } = require('axios');
 
 
 
-zokou({nomCom:"bot",reaction:"📡",categorie:"IA"},async(dest,zk,commandeOptions)=>{
+zokou({nomCom:"بوت",reaction:"📡",categorie:"IA"},async(dest,zk,commandeOptions)=>{
 
   const {repondre,ms,arg}=commandeOptions;
   
     if(!arg || !arg[0])
-    {return repondre("yes I'm listening to you.")}
+    {return repondre("ايوا انا هنا علشان اساعدك.")}
     //var quest = arg.join(' ');
   try{
     
     
-const message = await traduire(arg.join(' '),{ to : 'en'});
+const message = await traduire(arg.join(' '),{ to : 'ar'});
  console.log(message)
 fetch(`http://api.brainshop.ai/get?bid=177607&key=NwzhALqeO1kubFVD&uid=[uid]&msg=${message}`)
 .then(response => response.json())
@@ -24,7 +24,7 @@ fetch(`http://api.brainshop.ai/get?bid=177607&key=NwzhALqeO1kubFVD&uid=[uid]&msg
   const botResponse = data.cnt;
   console.log(botResponse);
 
-  traduire(botResponse, { to: 'en' })
+  traduire(botResponse, { to: 'ar' })
     .then(translatedResponse => {
       repondre(translatedResponse);
     })
@@ -45,12 +45,12 @@ fetch(`http://api.brainshop.ai/get?bid=177607&key=NwzhALqeO1kubFVD&uid=[uid]&msg
 
 
 
-  zokou({ nomCom: "dalle", reaction: "📡", categorie: "IA" }, async (dest, zk, commandeOptions) => {
+  zokou({ nomCom: "صور", reaction: "📡", categorie: "IA" }, async (dest, zk, commandeOptions) => {
     const { repondre, arg, ms } = commandeOptions;
   
     try {
       if (!arg || arg.length === 0) {
-        return repondre(`Please enter the necessary information to generate the image.`);
+        return repondre(`الرجاء إدخال المعلومات اللازمة لإنشاء الصورة.`);
       }
   
       // Regrouper les arguments en une seule chaîne séparée par "-"
